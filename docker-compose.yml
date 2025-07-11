@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    command: node dist/api/index.js
+
+  hub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "8081:8081"
+    command: node dist/hub/index.js
+
+  validator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - hub
+    command: node dist/validator/index.js

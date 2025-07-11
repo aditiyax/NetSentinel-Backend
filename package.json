@@ -1,0 +1,38 @@
+{
+  "name": "netsentinel-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "tsx prisma/seed.ts",
+    "build": "tsc",
+    "start:api": "node dist/api/index.js",
+    "start:hub": "node dist/hub/index.js",
+    "start:validator": "node dist/validator/index.js"
+  },
+  "prisma": {
+    "seed": "npm run seed"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.11.1",
+    "@solana/web3.js": "^1.98.2",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "path": "^0.12.7",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "tweetnacl": "^1.0.3",
+    "tweetnacl-util": "^0.15.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.11.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  }
+}
